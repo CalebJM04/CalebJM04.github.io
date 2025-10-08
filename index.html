@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Card — Modern NFC Business Card</title>
+  <meta name="description" content="A premium, modern ‘Contact Card’ that people actually keep. NFC-enabled with tap-to-connect." />
+  <meta name="author" content="Caleb Murray" />
+  <meta property="og:title" content="Contact Card — Modern NFC Business Card" />
+  <meta property="og:description" content="A premium, modern ‘Contact Card’ that people actually keep. NFC-enabled with tap-to-connect." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-card.jpg" />
+  <meta property="og:url" content="https://<your-username>.github.io/contact-card/" />
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    :root{
+      --bg: #0b0c10; --panel:#111218; --muted:#a3a6b1; --text:#e7e9ee; --brand:#7aa2ff; --brand-2:#7af0ff; --ring: 0 0 0 4px rgba(122,162,255,.15);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f7fb; --panel:#ffffff; --muted:#5b6070; --text:#0d1021; --brand:#3d63ff; --brand-2:#00bcd4; }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    /* Header */
+    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,12,16,.9), rgba(11,12,16,.6));backdrop-filter:saturate(1.2) blur(6px);z-index:10;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.3px}
+    .logo-mark{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#000;font-weight:900}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#001325;padding:10px 14px;border-radius:14px;font-weight:700}
+    .cta:focus{outline:none;box-shadow:var(--ring)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding-top:40px}
+    .card-shot{border-radius:22px;overflow:hidden;position:relative;background:radial-gradient(1200px 400px at 80% 0%, rgba(122,162,255,.18), transparent 60%), #0d0f17;border:1px solid rgba(255,255,255,.08)}
+    .card-shot img{width:100%;height:auto;display:block}
+    .tag{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:var(--muted);font-size:12px}
+    h1{font-size:clamp(30px,5vw,54px);line-height:1.1;margin:10px 0 8px}
+    .lead{color:var(--muted);font-size:18px}
+    .hero .actions{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.14);padding:10px 14px;border-radius:14px}
+    .btn:hover{transform:translateY(-1px)}
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+    .feature{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}
+    .feature h3{margin:6px 0 6px;font-size:18px}
+    .pill{font-size:12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:2px 8px;color:var(--muted)}
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:14px;cursor:zoom-in;border:1px solid rgba(255,255,255,.08)}
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+    .plan{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}
+    .plan h3{margin:6px 0 0}
+    .price{font-size:30px;font-weight:800;margin:6px 0}
+    ul{margin:0;padding-left:18px}
+    /* Footer */
+    footer{margin:60px 0 20px;color:var(--muted);font-size:14px}
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .pricing{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo"><span class="logo-mark">CC</span> Contact Card</div>
+      <nav>
+        <a class="btn" href="#features">Features</a>
+        <a class="btn" href="#gallery">Gallery</a>
+        <a class="btn" href="#pricing">Pricing</a>
+        <a class="cta" href="#contact">Get Yours</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <span class="tag">NFC • Tap to connect • Durable</span>
+        <h1>The business card people actually keep.</h1>
+        <p class="lead">I was tired of resumes and flimsy cards ending up in trash cans. So I built the <strong>Contact Card</strong>—a premium, NFC-enabled card with weight, texture, and a single-tap connection.</p>
+        <div class="actions">
+          <a class="cta" href="#contact">Order a Card</a>
+          <a class="btn" href="#details">How it works</a>
+        </div>
+      </div>
+      <div class="card-shot">
+        <img src="assets/hero-card.jpg" alt="Contact Card product photo" />
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+      <article class="feature">
+        <div class="pill">NFC + QR</div>
+        <h3>Tap or scan</h3>
+        <p>Instantly open your profile, portfolio, or LinkedIn with one tap. QR backup for older phones.</p>
+      </article>
+      <article class="feature">
+        <div class="pill">Premium build</div>
+        <h3>Feels worth keeping</h3>
+        <p>Thick core, matte finish, soft edges. Designed to feel like a product, not a handout.</p>
+      </article>
+      <article class="feature">
+        <div class="pill">Update anytime</div>
+        <h3>Change the link later</h3>
+        <p>Point it to any URL today; update the target later via your profile or redirect.</p>
+      </article>
+    </section>
+
+    <!-- DETAILS -->
+    <section id="details" style="margin-top:40px">
+      <h2>How it works</h2>
+      <ol>
+        <li>Tap the card to a phone or scan the QR.</li>
+        <li>Your link opens instantly — LinkedIn, site, portfolio, or Linktree.</li>
+        <li>Want to change the destination? Update your redirect, not the card.</li>
+      </ol>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="margin-top:20px">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="assets/card-1.jpg" alt="Card variant 1" onclick="zoom(this)" />
+        <img src="assets/card-2.jpg" alt="Card variant 2" onclick="zoom(this)" />
+        <img src="assets/card-3.jpg" alt="Card variant 3" onclick="zoom(this)" />
+        <img src="assets/card-4.jpg" alt="Card variant 4" onclick="zoom(this)" />
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="pricing">
+      <article class="plan">
+        <h3>Solo</h3>
+        <div class="price">$25</div>
+        <ul>
+          <li>1 custom card</li>
+          <li>NFC + QR</li>
+          <li>1 link</li>
+        </ul>
+      </article>
+      <article class="plan">
+        <h3>Student Pack</h3>
+        <div class="price">$65</div>
+        <ul>
+          <li>3 custom cards</li>
+          <li>NFC + QR</li>
+          <li>Link updates</li>
+        </ul>
+      </article>
+      <article class="plan">
+        <h3>Team</h3>
+        <div class="price">Contact</div>
+        <ul>
+          <li>Bulk pricing</li>
+          <li>Individual profiles</li>
+          <li>Brand guidelines</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:36px">
+      <h2>Get yours</h2>
+      <p>Email <a href="mailto:hello@example.com">hello@example.com</a> or connect on <a href="https://www.linkedin.com/in/caleb-murray-84730512b/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      <p>Prefer a form? Use <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a>—drop your form action URL into the HTML below.</p>
+      <form id="order" action="#" method="post" style="margin-top:8px;background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:16px;border-radius:14px">
+        <label>Name<br><input required name="name" placeholder="Your name" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--text)"/></label>
+        <div style="height:12px"></div>
+        <label>Email<br><input required type="email" name="email" placeholder="you@email.com" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--text)"/></label>
+        <div style="height:12px"></div>
+        <label>Message<br><textarea name="msg" rows="4" placeholder="What would you like designed?" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--text)"></textarea></label>
+        <div style="height:12px"></div>
+        <button class="cta" type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="margin-top:36px">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Will NFC work on iPhones and Android?</summary>
+        <p>Yes. iPhone XS and later + most Android phones support NFC tap. Older phones can scan the printed QR.</p>
+      </details>
+      <details>
+        <summary>Can I change the link later?</summary>
+        <p>Yes—use a redirect (e.g., your GitHub Pages URL) and update that destination anytime.</p>
+      </details>
+      <details>
+        <summary>Do you ship internationally?</summary>
+        <p>Use this as a placeholder—edit to match your policy.</p>
+      </details>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Contact Card • Built by Caleb. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    // Simple lightbox zoom
+    function zoom(img){
+      const src = img.src; const dlg = document.createElement('dialog');
+      dlg.style.padding='0'; dlg.style.border='none'; dlg.style.background='transparent';
+      dlg.innerHTML = `<div style="position:fixed;inset:0;background:rgba(0,0,0,.75);display:grid;place-items:center" onclick="this.parentElement.close()">
+        <img src="${src}" alt="Zoomed" style="max-width:92vw;max-height:92vh;border-radius:16px;border:1px solid rgba(255,255,255,.2)"/>
+      </div>`;
+      document.body.appendChild(dlg); dlg.showModal();
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD Product snippet (edit prices/urls as needed) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Contact Card",
+    "description": "Premium NFC-enabled business card.",
+    "image": ["assets/hero-card.jpg"],
+    "brand": {"@type":"Brand","name":"Contact Card"},
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "25.00",
+      "highPrice": "65.00",
+      "priceCurrency": "USD",
+      "offerCount": "3"
+    }
+  }
+  </script>
+</body>
+</html>
