@@ -91,9 +91,7 @@
           <a class="btn" href="#details">How it works</a>
         </div>
       </div>
-      <div class="card-shot">
-        <img src="assets/hero-card.jpg" alt="Contact Card product photo" />
-      </div>
+      <div class="card-shot"><div id="hero-image"></div></div>
     </section>
 
     <!-- FEATURES -->
@@ -128,12 +126,7 @@
     <!-- GALLERY -->
     <section id="gallery" style="margin-top:20px">
       <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="assets/card-1.jpg" alt="Card variant 1" onclick="zoom(this)" />
-        <img src="assets/card-2.jpg" alt="Card variant 2" onclick="zoom(this)" />
-        <img src="assets/card-3.jpg" alt="Card variant 3" onclick="zoom(this)" />
-        <img src="assets/card-4.jpg" alt="Card variant 4" onclick="zoom(this)" />
-      </div>
+      <div id="gallery-grid" class="gallery"></div>
     </section>
 
     <!-- PRICING -->
@@ -170,7 +163,7 @@
     <!-- CONTACT -->
     <section id="contact" style="margin-top:36px">
       <h2>Get yours</h2>
-      <p>Email <a href="mailto:hello@example.com">hello@example.com</a> or connect on <a href="https://www.linkedin.com/in/caleb-murray-84730512b/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      <p>Email <a href="mailto:flvol04@gmail.com">flvol04@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/caleb-murray-84730512b/" target="_blank" rel="noopener">LinkedIn</a>.</p>
       <p>Prefer a form? Use <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a>—drop your form action URL into the HTML below.</p>
       <form id="order" action="#" method="post" style="margin-top:8px;background:var(--panel);border:1px solid rgba(255,255,255,.08);padding:16px;border-radius:14px">
         <label>Name<br><input required name="name" placeholder="Your name" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:transparent;color:var(--text)"/></label>
@@ -206,6 +199,42 @@
   </main>
 
   <script>
+    // === CONFIG: set these to match the exact filenames from your other repo ===
+    const HERO_FILE = "assets/images/contact-card-hero.jpg"; // e.g., "assets/your-existing-hero-file.jpg"
+    const GALLERY_FILES = [
+      "assets/images/contact-card-flatlay.jpg",
+      "assets/images/contact-card-white.jpg",
+      "assets/images/pricing-standard.png",
+      "assets/images/pricing-premium.png",
+      "assets/images/pricing-bulk.png"
+    ];
+
+    // Render hero image
+    (function renderHero(){
+      const hero = document.getElementById('hero-image');
+      const img = document.createElement('img');
+      img.src = HERO_FILE;
+      img.alt = "Contact Card product photo";
+      img.style.width = '100%';
+      img.style.height = 'auto';
+      img.onload = ()=>{};
+      img.onerror = ()=>{ hero.innerHTML = '<div style="padding:28px;color:var(--muted)">Add your hero image to '+HERO_FILE+'</div>'; };
+      hero.appendChild(img);
+    })();
+
+    // Render gallery from filenames
+    (function renderGallery(){
+      const grid = document.getElementById('gallery-grid');
+      GALLERY_FILES.forEach((src)=>{
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Card image';
+        img.onclick = ()=>zoom(img);
+        img.onerror = ()=>{ img.style.display = 'none'; };
+        grid.appendChild(img);
+      });
+    })();
+
     // Simple lightbox zoom
     function zoom(img){
       const src = img.src; const dlg = document.createElement('dialog');
